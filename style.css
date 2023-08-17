@@ -1,3 +1,137 @@
+/*
+heading : font-family: 'Meddon', cursive;
+quotes : font-family: "Marck Script", cursive;
+buttons n span, everything else : font-family: 'Yatra One', cursive;
+*/
+
+/* global reset*/
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #457b9d;
+  background-color: #001219;
+  color: #94d2bd;
+  font-family: "Yatra One", cursive;
+  padding: 40px;
+}
+
+/* MAIN LAYOUT */
+.container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quote-form {
+  background-color: #005f7390;
+  margin-bottom: 50px;
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 28px;
+}
+
+/* ELEMENTS */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo img {
+  width: 220px;
+  height: 220px;
+}
+
+.quote {
+  font-family: "Marck Script", cursive;
+  font-size: 24px;
+  line-height: 1.4;
+  background-color: #005f7330;
+  margin-bottom: 20px;
+  padding: 20px;
+  padding-left: 45px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  letter-spacing: -1;
+}
+
+.source:hover {
+  color: #e9d8a6;
+  font-size: 14px;
+}
+
+.tag {
+  text-transform: uppercase;
+  font-family: "Yatra One", cursive;
+  color: #001219;
+  font-size: 14px;
+  padding: 2px 8px;
+  border-radius: 50;
+}
+
+.votes {
+  margin-left: auto;
+}
+
+.btn {
+  font-family: "Yatra One", cursive;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 10px 3px 8px;
+  color: #001219;
+  background-color: #e9d8a670;
+  border: none;
+  border-radius: 7px;
+}
+
+.btn-large {
+  font-size: 18px;
+  margin-bottom: 16px;
+  padding: 15px 5px 20px;
+  background-color: #e9d8a6;
+}
+
+.btn-category {
+  width: 100%;
+}
+
+h1 {
+  font-size: 42px;
+  font-family: "Meddon", cursive;
+}
+
+button {
+  font-size: 20px;
+  color: #e63946;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  margin-left: 12px;
+  font-family: "Yatra One", cursive;
+  font-size: 12px;
+  text-transform: capitalize;
+  color: #0a9396;
+  text-decoration: none;
+  /* transition: 10ms; */
 }

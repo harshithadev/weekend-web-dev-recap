@@ -3,137 +3,164 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Meddon&family=Yatra+One&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href=" style.css" />
     <title>Quotes from Everywhere!</title>
   </head>
   <body>
     <div class="container">
-      <header>
-        <img
-          src="images/logo-removebg.png"
-          width="220px"
-          height="220px"
-          alt="logo"
-        />
-        <h1>Quotes from Everywhere!</h1>
-        <button>Share a Quote</button>
-        <form action="">
-          <input placeholder="Share a Quote to the world..." type="text" />
-          <span>200</span>
-          <input placeholder="Book/ Author" type="text" />
-          <select name="genre" id="genre">
-            <option value="Happy">Happy</option>
-            <option value="Sad">Happy</option>
-            <option value="Motivational">Motivational</option>
-          </select>
-          <button type="submit">Post</button>
-        </form>
+      <header class="header">
+        <div class="logo">
+          <img
+            src="images/logo-removebg.png"
+            width="220px"
+            height="220px"
+            alt="logo"
+          />
+          <h1>Quotes from Everywhere!</h1>
+        </div>
+        <button class="btn btn-large">Share a Quote</button>
       </header>
-      <main>
+      <form class="quote-form" action="">
+        <input placeholder="Share a Quote to the world..." type="text" />
+        <span>200</span>
+        <input placeholder="Book/ Author" type="text" />
+        <select name="genre" id="genre">
+          <option value="Happy">Happy</option>
+          <option value="Sad">Happy</option>
+          <option value="Motivational">Motivational</option>
+          <option value="Motivational">Love</option>
+        </select>
+        <button class="btn btn-large" type="submit">Post</button>
+      </form>
+      <main class="main">
         <aside>
           <ul>
-            <li><button>All</button></li>
-            <li><button>Happy</button></li>
-            <li><button>Sad</button></li>
-            <li><button>Motivational</button></li>
+            <li>
+              <button class="btn btn-large btn-category tag">All</button>
+            </li>
+            <li>
+              <button
+                class="btn btn-large btn-category tag"
+                style="background-color: #ee9b00"
+              >
+                Happy
+              </button>
+            </li>
+            <li>
+              <button
+                class="btn btn-large btn-category tag"
+                style="background-color: #ae2012"
+              >
+                Sad
+              </button>
+            </li>
+            <li>
+              <button
+                class="btn btn-large btn-category tag"
+                style="background-color: #ca6702"
+              >
+                Motivational
+              </button>
+            </li>
+            <li>
+              <button
+                class="btn btn-large btn-category tag"
+                style="background-color: #bb3e03"
+              >
+                Love
+              </button>
+            </li>
           </ul>
         </aside>
         <section>
           <ul>
-            <li>
+            <li class="quote">
               <p>
-                For every minute you are angry you lose sixty seconds of
-                happiness.
+                Love is that condition in which the happiness of another person
+                is essential to your own.
                 <a
-                  href="https://www.goodreads.com/author/show/12080.Ralph_Waldo_Emerson"
-                  >Ralph Waldo Emerson</a
+                  class="source"
+                  target="_blank"
+                  href="https://www.goodreads.com/work/quotes/908211-stranger-in-a-strange-land"
+                  >Stranger in a Strange Land</a
                 >
               </p>
-              <button>Happy</button>
-              <div>
-                <ul>
-                  <li>
-                    <button>👍 <span>5</span></button>
-                  </li>
-                  <li>
-                    <button>🤯<span>3</span></button>
-                  </li>
-                  <li>
-                    <button>❌ <span>1</span></button>
-                  </li>
-                </ul>
+              <span class="tag" style="background-color: #bb3e03"> Love</span>
+              <div class="votes">
+                <button class="btn">👍 <span>5</span></button>
+
+                <button class="btn">🤯 <span>3</span></button>
+
+                <button class="btn">❌ <span>1</span></button>
               </div>
             </li>
-            <li>
+            <li class="quote">
               <p>
                 Every man has his secret sorrows which the world knows not; and
                 often times we call a man cold when he is only sad.
                 <a
+                  class="source"
+                  target="_blank"
                   href="https://www.goodreads.com/author/show/2697.Henry_Wadsworth_Longfellow"
                   >Henry Wadsworth Longfellow</a
                 >
               </p>
-              <button>Happy</button>
-              <div>
-                <ul>
-                  <li>
-                    <button>👍 <span>5</span></button>
-                  </li>
-                  <li>
-                    <button>🤯<span>3</span></button>
-                  </li>
-                  <li>
-                    <button>❌ <span>1</span></button>
-                  </li>
-                </ul>
+              <span class="tag" style="background-color: #ae2012">Sad</span>
+              <div class="votes">
+                <button class="btn">👍 <span>5</span></button>
+
+                <button class="btn">🤯 <span>3</span></button>
+
+                <button class="btn">❌ <span>1</span></button>
               </div>
             </li>
-            <li>
+            <li class="quote">
               <p>
                 For every minute you are angry you lose sixty seconds of
                 happiness.
                 <a
+                  class="source"
+                  target="_blank"
                   href="https://www.goodreads.com/author/show/12080.Ralph_Waldo_Emerson"
                   >Ralph Waldo Emerson</a
                 >
               </p>
-              <button>Happy</button>
-              <div>
-                <ul>
-                  <li>
-                    <button>👍 <span>5</span></button>
-                  </li>
-                  <li>
-                    <button>🤯<span>3</span></button>
-                  </li>
-                  <li>
-                    <button>❌ <span>1</span></button>
-                  </li>
-                </ul>
+              <span class="tag" style="background-color: #ee9b00">Happy</span>
+              <div class="votes">
+                <button class="btn">👍 <span>5</span></button>
+
+                <button class="btn">🤯 <span>3</span></button>
+
+                <button class="btn">❌ <span>1</span></button>
               </div>
             </li>
-            <li>
+            <li class="quote">
               <p>
-                For every minute you are angry you lose sixty seconds of
-                happiness.
+                We accept the love we think we deserve.
                 <a
-                  href="https://www.goodreads.com/author/show/12080.Ralph_Waldo_Emerson"
-                  >Ralph Waldo Emerson</a
+                  class="source"
+                  target="_blank"
+                  href="https://www.goodreads.com/work/quotes/2236198-the-perks-of-being-a-wallflower"
+                  >The Perks of Being a Wallflower</a
                 >
               </p>
-              <button>Happy</button>
-              <div>
-                <ul>
-                  <li>
-                    <button>👍 <span>5</span></button>
-                  </li>
-                  <li>
-                    <button>🤯<span>3</span></button>
-                  </li>
-                  <li>
-                    <button>❌ <span>1</span></button>
-                  </li>
-                </ul>
+              <span class="tag" style="background-color: #bb3e03">Love</span>
+              <div class="votes">
+                <button class="btn">👍 <span>5</span></button>
+
+                <button class="btn">🤯 <span>3</span></button>
+
+                <button class="btn">❌ <span>1</span></button>
               </div>
             </li>
           </ul>
