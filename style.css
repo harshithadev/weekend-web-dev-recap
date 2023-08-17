@@ -33,10 +33,15 @@ body {
 }
 
 .quote-form {
-  background-color: #005f7390;
+  background-color: #005f7350;
   margin-bottom: 50px;
-  padding: 20px 40px;
+  padding: 30px 80px;
   text-align: center;
+  border-radius: 20px;
+}
+
+.quote-form span {
+  color: #e9d8a6;
 }
 
 .main {
@@ -57,6 +62,23 @@ body {
   height: 220px;
 }
 
+.quote-form input,
+.quote-form select,
+.quote-form text {
+  font-size: 18px;
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  background-color: #e9d8a6;
+  border-radius: 20px;
+  border: none;
+}
+
+.quote-form button {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
 .quote {
   font-family: "Marck Script", cursive;
   font-size: 24px;
@@ -69,6 +91,19 @@ body {
   align-items: center;
   gap: 18px;
   letter-spacing: -1;
+}
+
+@media (max-width: 820px) {
+  .quote {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
 }
 
 .source:hover {
@@ -87,6 +122,13 @@ body {
 
 .votes {
   margin-left: auto;
+  display: flex;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.votes button:hover {
+  background-color: #e9d8a697;
 }
 
 .btn {
@@ -94,22 +136,28 @@ body {
   line-height: 1;
   text-transform: uppercase;
   font-size: 16px;
-  padding: 10px 3px 8px;
+  padding: 10px 5px 6px;
   color: #001219;
-  background-color: #e9d8a670;
+  background-color: #e9d8a640;
   border: none;
   border-radius: 7px;
+  cursor: pointer;
 }
 
 .btn-large {
   font-size: 18px;
-  margin-bottom: 16px;
-  padding: 15px 5px 20px;
+  padding: 12px;
   background-color: #e9d8a6;
 }
 
 .btn-category {
-  width: 100%;
+  width: 90%;
+  transition: 10ms;
+  margin: 10px;
+}
+
+.btn-category:hover {
+  transform: scale(110%) rotate(-1deg);
 }
 
 h1 {
