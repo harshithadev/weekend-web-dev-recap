@@ -44,6 +44,10 @@ body {
   color: #e9d8a6;
 }
 
+.hidden {
+  display: none;
+}
+
 .main {
   display: grid;
   grid-template-columns: 1fr 3fr;
