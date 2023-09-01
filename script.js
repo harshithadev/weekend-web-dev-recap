@@ -1,6 +1,14 @@
 //  console.log("welcome to my website!");
 
 //--------------------------------------VARIABLES -------------------
+const CATEGORIES = [
+  { category: "happy", color: "#ee9b00" },
+  { category: "sad", color: "#ae2012" },
+  { category: "motivational", color: "#ca6702" },
+  { category: "love", color: "#bb3e03" },
+  { category: "life", color: "#9b2226" },
+];
+
 const btn = document.querySelector(".share-quote");
 const form = document.querySelector(".hidden");
 const quotesList = document.querySelector(".quotes-list");
@@ -62,7 +70,9 @@ function createQuotesList(dataArray) {
       href="${quote.origin}"
       >${quote.originName}</a>
   </p>
-  <span class="tag" style="background-color: #bb3e03"> ${quote.category}</span>
+  <span class="tag" style="background-color: ${
+    CATEGORIES.find((cat) => cat.category == quote.category).color
+  }"> ${quote.category}</span>
   <div class="votes">
   <button class="btn">👍 <span>${quote.votesThumbsUp}</span></button>
 
