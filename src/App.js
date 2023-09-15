@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { useState } from "react";
 import "./style.css";
 
 const CATEGORIES = [
@@ -25,21 +26,12 @@ const initialQuotes = [
 ];
 
 function App() {
+  const [showForm, setShowForm] = useState(false);
+
   return (
     <Fragment>
-      <header className="header">
-        <div className="logo">
-          <img
-            src="images/logo-removebg.png"
-            width="220px"
-            height="220px"
-            alt="logo"
-          />
-          <h1>Quotes from Everywhere!</h1>
-        </div>
-        <button className="btn btn-large share-quote">Share a Quote</button>
-      </header>
-      <QuoteForm />
+      <Header showForm={showForm} setShowForm={setShowForm} />
+      {showForm ? <QuoteForm /> : null}
       <main className="main">
         <CategoryFilters />
         <QuotesList />
@@ -48,10 +40,73 @@ function App() {
   );
 }
 
+function Header({ showForm, setShowForm }) {
+  const appTitle = "Quotes from Everywhere!";
+
+  return (
+    <header className="header">
+      <div className="logo">
+        <img
+          src="images/logo-removebg.png"
+          width="220px"
+          height="220px"
+          alt="logo"
+        />
+        <h1>{appTitle}</h1>
+      </div>
+      <button
+        className="btn btn-large share-quote"
+        onClick={() => setShowForm((show) => !show)}
+      >
+        {showForm ? "Close" : "Share a Quote"}
+      </button>
+    </header>
+  );
+}
+
 function QuoteForm() {
+  const [quoteText, setQuoteText] = useState("");
+  const [originName, setOriginName] = useState("");
+  const [origin, setOrigin] = useState("");
+  //const [category, setCategory] = useState("");
+
   return (
     <form className="quote-form" action="">
-      form
+      <input
+        placeholder="Share a Quote to the world..."
+        type="text"
+        value={quoteText}
+        onChange={(e) => setQuoteText(e.target.value)}
+      />
+      <span>{200 - quoteText.length}</span>
+      <input
+        placeholder="Book/ Author"
+        type="text"
+        value={originName}
+        onChange={(e) => setOriginName(e.target.value)}
+      />
+      <input
+        placeholder="Source"
+        type="text"
+        value={origin}
+        onChange={(e) => setOrigin(e.target.value)}
+      />
+      <select
+        name="genre"
+        id="genre"
+        value={originName}
+        onChange={(e) => setOriginName(e.target.value)}
+      >
+        <option value="">Category</option>
+        {CATEGORIES.map((cat) => (
+          <option key={cat.category} value={cat.category}>
+            {cat.category.toUpperCase()}
+          </option>
+        ))}
+      </select>
+      <button class="btn btn-large" type="submit">
+        Post
+      </button>
     </form>
   );
 }
@@ -69,7 +124,7 @@ function CategoryFilters() {
           </button>
         </li>
         {CATEGORIES.map((cat) => (
-          <li>
+          <li key={cat.category}>
             <button
               className="btn btn-large btn-category tag"
               style={{ backgroundColor: cat.color }}
