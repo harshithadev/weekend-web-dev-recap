@@ -2,6 +2,13 @@ import React, { Fragment } from "react";
 import { useState } from "react";
 import "./style.css";
 
+// TODO : do this
+// 1. change the color of the input feilds.
+// 2. change the color of category drop down
+// 3. add validation to the form, like url validation
+// 4. add error message to form
+//
+
 const CATEGORIES = [
   { category: "happy", color: "#ee9b00" },
   { category: "sad", color: "#ae2012" },
@@ -134,6 +141,7 @@ function QuoteForm({ setShowForm, setQuotes }) {
           </option>
         ))}
       </select>
+
       <button className="btn btn-large" type="submit">
         Post
       </button>
