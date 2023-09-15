@@ -27,14 +27,17 @@ const initialQuotes = [
 
 function App() {
   const [showForm, setShowForm] = useState(false);
+  const [quotes, setQuotes] = useState(initialQuotes);
 
   return (
     <Fragment>
       <Header showForm={showForm} setShowForm={setShowForm} />
-      {showForm ? <QuoteForm /> : null}
+      {showForm ? (
+        <QuoteForm setShowForm={setShowForm} setQuotes={setQuotes} />
+      ) : null}
       <main className="main">
         <CategoryFilters />
-        <QuotesList />
+        <QuotesList quotes={quotes} />
       </main>
     </Fragment>
   );
@@ -64,14 +67,41 @@ function Header({ showForm, setShowForm }) {
   );
 }
 
-function QuoteForm() {
+function QuoteForm({ setShowForm, setQuotes }) {
   const [quoteText, setQuoteText] = useState("");
   const [originName, setOriginName] = useState("");
   const [origin, setOrigin] = useState("");
-  //const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    // console.log(quoteText, originName, origin);
+    if (
+      quoteText &&
+      origin &&
+      originName &&
+      category &&
+      quoteText.length <= 200
+    ) {
+      const newQuote = {
+        // id: Math.round(Math.random() * 100000000),
+        id: initialQuotes.length + 1,
+        quoteText: quoteText,
+        origin: origin,
+        originName: originName,
+        category: category,
+        votesThumbsUp: 0,
+        votesMindblowing: 0,
+        votesFalse: 0,
+      };
+      console.log(newQuote);
+      setQuotes((quote) => [newQuote, ...quote]);
+      setShowForm(false);
+    }
+  }
 
   return (
-    <form className="quote-form" action="">
+    <form className="quote-form" onSubmit={handleSubmit}>
       <input
         placeholder="Share a Quote to the world..."
         type="text"
@@ -94,8 +124,8 @@ function QuoteForm() {
       <select
         name="genre"
         id="genre"
-        value={originName}
-        onChange={(e) => setOriginName(e.target.value)}
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
       >
         <option value="">Category</option>
         {CATEGORIES.map((cat) => (
@@ -104,7 +134,7 @@ function QuoteForm() {
           </option>
         ))}
       </select>
-      <button class="btn btn-large" type="submit">
+      <button className="btn btn-large" type="submit">
         Post
       </button>
     </form>
@@ -138,9 +168,7 @@ function CategoryFilters() {
   );
 }
 
-function QuotesList() {
-  const quotes = initialQuotes;
-
+function QuotesList({ quotes }) {
   return (
     <section>
       <ul className="quotes-list">
