@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import supabase from "./supabase";
 import "./style.css";
 
 // TODO : do this
@@ -35,6 +36,18 @@ const initialQuotes = [
 function App() {
   const [showForm, setShowForm] = useState(false);
   const [quotes, setQuotes] = useState(initialQuotes);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(function () {
+    async function getQuotes() {
+      setIsLoading(true);
+      const { data: quotes, error } = await supabase.from("quotes").select("*");
+      if (!error) alert("there was a problem getting data");
+      setIsLoading(false);
+      //console.log(quotes);
+    }
+    getQuotes();
+  }, []);
 
   return (
     <Fragment>
@@ -44,10 +57,18 @@ function App() {
       ) : null}
       <main className="main">
         <CategoryFilters />
-        <QuotesList quotes={quotes} />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <QuotesList quotes={quotes} setQuotes={setQuotes} />
+        )}
       </main>
     </Fragment>
   );
+}
+
+function Loader() {
+  return <p className="message">Loading...</p>;
 }
 
 function Header({ showForm, setShowForm }) {
